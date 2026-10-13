@@ -34,6 +34,7 @@
     --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     --f-head:'Rubik', sans-serif;
     --f-body:'Assistant', sans-serif;
+    --ease-out: cubic-bezier(.16,.8,.24,1);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -70,7 +71,8 @@
   .on-dark .num{background:rgba(0,0,0,.35);color:#ddd;border-color:rgba(255,255,255,.35);}
 
   .eyebrow{font-family:var(--f-head);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin:0 0 22px;}
-  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:99px;text-decoration:none;font-family:var(--f-head);font-weight:700;font-size:15px;transition:transform .18s ease, background .18s ease, color .18s ease, border-color .18s ease;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;border-radius:99px;text-decoration:none;font-family:var(--f-head);font-weight:700;font-size:15px;transition:transform .16s var(--ease-out), background .16s var(--ease-out), color .16s var(--ease-out), border-color .16s var(--ease-out);}
+  .btn:active{transform:scale(.97);}
 
   /* ===== מערכת reveal לגלילה — דפוסים שונים לפי סוג אלמנט, לא אחיד לכל הדף ===== */
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.16,.8,.24,1), transform .7s cubic-bezier(.16,.8,.24,1);}
@@ -118,15 +120,18 @@
   .nav-actions{display:flex;align-items:center;gap:22px;}
   .nav-social{display:flex;gap:8px;align-items:center;}
   @media(max-width:600px){.nav-social{display:none;}}
-  .nav-cta{font-family:var(--f-head);font-weight:800;font-size:13px;color:var(--ink);background:var(--lime);border:2px solid var(--cream);text-decoration:none;padding:9px 22px;border-radius:99px;white-space:nowrap;transition:background .2s ease, color .2s ease, transform .2s ease;}
+  .nav-cta{font-family:var(--f-head);font-weight:800;font-size:13px;color:var(--ink);background:var(--lime);border:2px solid var(--cream);text-decoration:none;padding:9px 22px;border-radius:99px;white-space:nowrap;transition:background .2s var(--ease-out), color .2s var(--ease-out), transform .2s var(--ease-out);}
   .nav-cta:hover{background:var(--accent);color:#fff;transform:translateY(-2px);}
-  .icon-btn{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.45);color:var(--beige);text-decoration:none;transition:.15s;position:relative;}
+  .nav-cta:active{transform:scale(.96);}
+  .icon-btn{display:flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.45);color:var(--beige);text-decoration:none;transition:background .15s var(--ease-out),border-color .15s var(--ease-out),color .15s var(--ease-out),transform .15s var(--ease-out);position:relative;}
   .icon-btn svg{width:14px;height:14px;}
   .icon-btn:hover{background:var(--beige);border-color:var(--beige);color:var(--ink);}
+  .icon-btn:active{transform:scale(.9);}
   #s11 .icon-btn{border-color:rgba(255,255,255,.4);color:var(--beige);}
   #s11 .icon-btn:hover{background:var(--accent);border-color:var(--accent);color:var(--ink);}
-  .lang-toggle{font-family:var(--f-head);font-weight:800;font-size:13px;color:var(--beige);background:transparent;border:1.5px solid rgba(255,255,255,.6);border-radius:99px;padding:9px 16px;cursor:pointer;transition:background .2s ease, color .2s ease;}
+  .lang-toggle{font-family:var(--f-head);font-weight:800;font-size:13px;color:var(--beige);background:transparent;border:1.5px solid rgba(255,255,255,.6);border-radius:99px;padding:9px 16px;cursor:pointer;transition:background .2s var(--ease-out), color .2s var(--ease-out), transform .15s var(--ease-out);}
   .lang-toggle:hover{background:var(--beige);color:var(--accent);}
+  .lang-toggle:active{transform:scale(.96);}
 
   /* ===== 1. HERO — תמונה מלאה ברקע, טקסט צף מעליה. התמונה תופסת את כל המסך,
      הטקסט יושב בתחתית עם שכבת הצללה לקריאות, כמו כריכת מגזין ===== */
@@ -140,7 +145,8 @@
   .hero-name .mark{color:var(--beige);}
   .hero-bottom{margin-top:40px;}
   .hero-links{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:32px;max-width:900px;width:100%;}
-  .hero-link-btn{flex:1 1 0;text-align:center;display:inline-block;background:transparent;border:2.5px solid var(--accent);color:var(--beige);font-family:var(--f-head);font-weight:800;font-size:clamp(26px,3.4vw,44px);text-decoration:none;padding:24px 20px;border-radius:99px;transition:transform .2s ease, background .2s ease, color .2s ease;}
+  .hero-link-btn{flex:1 1 0;text-align:center;display:inline-block;background:transparent;border:2.5px solid var(--accent);color:var(--beige);font-family:var(--f-head);font-weight:800;font-size:clamp(26px,3.4vw,44px);text-decoration:none;padding:24px 20px;border-radius:99px;transition:transform .2s var(--ease-out), background .2s var(--ease-out), color .2s var(--ease-out);}
+  .hero-link-btn:active{transform:scale(.98);}
   .hero-link-btn:hover{background:var(--lime);color:var(--ink);transform:translateY(-2px);}
   @media(max-width:720px){.hero-content{padding-bottom:48px;} .hero-name{white-space:normal;}}
   /* כפתור מלא ובולט לפתיח — CTA ראשי */
@@ -179,7 +185,8 @@
   .clip-media img{width:100%;height:100%;object-fit:cover;}
   .clip-stamp{position:absolute;bottom:8px;left:8px;background:var(--cream);border:1px dashed var(--ink);color:var(--ink);font-size:11px;padding:3px 9px;}
   .clip-foot{display:flex;justify-content:space-between;align-items:center;}
-  .clip-link{display:inline-block;font-size:13px;font-weight:800;font-family:var(--f-head);color:var(--ink);background:var(--lime);text-decoration:none;padding:9px 20px;border-radius:99px;transition:background .2s ease, color .2s ease, transform .2s ease;}
+  .clip-link{display:inline-block;font-size:13px;font-weight:800;font-family:var(--f-head);color:var(--ink);background:var(--lime);text-decoration:none;padding:9px 20px;border-radius:99px;transition:background .2s var(--ease-out), color .2s var(--ease-out), transform .2s var(--ease-out);}
+  .clip-link:active{transform:scale(.95);}
   .clip-card:hover .clip-link{background:var(--accent);color:var(--beige);transform:translateY(-2px);}
 
   /* ===== 6. פילאר 3/3 — מדיה, תצוגת תמונות ב-2 עמודות, בלי לחזור על הרצאות/כתבות שכבר מוצגות למעלה ===== */
@@ -202,7 +209,8 @@
   #s11{background:var(--lime);color:var(--ink);text-align:center;padding:0;}
   .contact-eyebrow{color:var(--accent);display:block;padding-top:56px;font-size:clamp(30px,3.6vw,46px);letter-spacing:-0.01em;text-transform:none;}
   @media(max-width:720px){.contact-eyebrow{padding-top:64px;}}
-  .contact-main-cta{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-family:var(--f-head);font-weight:800;font-size:clamp(18px,1.8vw,22px);line-height:1;padding:22px 48px;border-radius:99px;margin:24px 0;transition:background .25s ease, color .25s ease, transform .25s ease;}
+  .contact-main-cta{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-family:var(--f-head);font-weight:800;font-size:clamp(18px,1.8vw,22px);line-height:1;padding:22px 48px;border-radius:99px;margin:24px 0;transition:background .25s var(--ease-out), color .25s var(--ease-out), transform .25s var(--ease-out);}
+  .contact-main-cta:active{transform:scale(.97);}
   .contact-main-cta:hover{transform:translateY(-2px);}
   .contact-main-cta:hover{background:var(--accent);color:var(--beige);}
   #s11 p.lede{font-size:19px;color:var(--beige);max-width:46ch;margin:0 auto;}
