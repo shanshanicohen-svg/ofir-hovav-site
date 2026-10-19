@@ -248,6 +248,76 @@
   .media-card h4{font-size:24px;}
   .media-card .yr{font-size:16px;}
   .media-card .yr.yr-sentence{font-size:19px;}
+
+  /* ===== תצוגה לפי הסקיצה (גרסה בהירה, ליים) ===== */
+  /* HERO: תמונה עד הקצה בחצי השמאלי, שם ענק בשתי שורות בחצי הימני */
+  #hero{padding:0;}
+  #hero .hero-content{max-width:none;margin:0;padding:0;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;min-height:calc(100svh - 150px);}
+  .hero-photo-bg{max-width:none;aspect-ratio:auto;height:100%;min-height:520px;background:#fff;}
+  .hero-photo-bg img{object-position:center 20%;}
+  .hero-text{align-self:center;padding:56px var(--gutter);}
+  .hero-name{font-size:clamp(120px,15vw,260px);line-height:.82;margin-bottom:28px;}
+  .hero-name .mark{display:block;}
+  .hero-kicker{font-size:clamp(24px,2.2vw,32px);letter-spacing:.02em;line-height:1.3;max-width:none;margin-bottom:0;}
+  .hero-links{gap:10px;margin-top:28px;}
+  .hero-link-btn{padding:10px 22px;border-radius:4px;font-size:clamp(17px,1.3vw,20px);}
+  @media(max-width:860px){
+    #hero .hero-content{grid-template-columns:1fr;min-height:0;}
+    .hero-photo-bg{max-width:none;margin:0;aspect-ratio:4/5;height:auto;min-height:0;order:1;}
+    .hero-text{order:2;padding:36px 24px 44px;text-align:right;}
+    .hero-links{justify-content:flex-start;}
+    .hero-name{font-size:clamp(110px,34vw,170px);}
+  }
+
+  /* סטריפ ליים רץ עם שמות ההרצאות */
+  .cat-strip{padding:12px 0;overflow:hidden;border-top:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);}
+  .strip-track{display:flex;width:max-content;animation:stripRun 70s linear infinite;}
+  .cat-strip:hover .strip-track{animation-play-state:paused;}
+  .strip-group{display:flex;align-items:center;gap:26px;padding-inline-end:26px;white-space:nowrap;}
+  .cat-strip span{font-size:22px;font-weight:700;letter-spacing:.02em;}
+  .cat-strip i{font-style:normal;font-size:14px;}
+  @keyframes stripRun{from{transform:translateX(0);}to{transform:translateX(50%);}}
+  html[dir="ltr"] .strip-track{animation-name:stripRunLtr;}
+  @keyframes stripRunLtr{from{transform:translateX(-50%);}to{transform:translateX(0);}}
+  @media (prefers-reduced-motion: reduce){ .strip-track{animation:none !important;} }
+
+  /* הרצאות: גריד אחיד, תמונות רוחביות, כותרת מתחת לתמונה, כרטיס ליים */
+  .lecture-grid{gap:34px 22px;align-items:stretch;}
+  .lecture-grid .work-media{aspect-ratio:4/3 !important;border:0;}
+  .work-caption{position:static;color:var(--ink);font-size:clamp(28px,2.6vw,38px);font-weight:700;line-height:1.05;margin-top:12px;}
+  .accent-card{flex-direction:column;align-items:flex-start;justify-content:flex-end;text-align:right;text-decoration:none;border-radius:0;padding:28px;min-height:240px;transition:transform .2s var(--ease-out);}
+  html[dir="ltr"] .accent-card{text-align:left;}
+  .accent-card:hover{transform:translateY(-3px);}
+  .accent-title{font-family:var(--f-head);font-weight:700;font-size:clamp(38px,3.6vw,56px);line-height:.98;}
+  /* כתבות: בלי מסגרות */
+  .clip-card{border:0;padding:0;background:transparent;}
+  .clip-stamp{border:0;}
+  .accent-cta{margin-top:14px;font-size:19px;font-weight:700;border-bottom:1.5px solid var(--ink);}
+
+  /* ===== פלטה מלאה: ליים מרכזי, כתום וסגול משניים. הרצאות=ליים, כתבות=כתום, מדיה=סגול ===== */
+  #s4{--sec:var(--lime);} #s5{--sec:var(--orange);} #s7{--sec:var(--purple);}
+  #s4 .pillar-title,#s5 .pillar-title,#s7 .pillar-title{display:inline-block;box-shadow:inset 0 -.16em 0 var(--sec);}
+  /* כפתורי ההירו: כל אחד בצבע של הסקשן שלו */
+  .hero-link-btn[href="#s4"]:hover{background:var(--lime);border-color:var(--lime);}
+  .hero-link-btn[href="#s5"]:hover{background:var(--orange);border-color:var(--orange);}
+  .hero-link-btn[href="#s7"]:hover{background:var(--purple);border-color:var(--purple);}
+  /* כוכבים בסטריפ: מתחלפים כתום/סגול/שחור */
+  .cat-strip i:nth-of-type(3n+1){color:var(--orange);}
+  .cat-strip i:nth-of-type(3n+2){color:var(--purple);}
+  .cat-strip i:nth-of-type(3n){color:var(--ink);}
+  /* הרצאות */
+  .lecture-grid .work-card:hover .work-caption{box-shadow:inset 0 -.18em 0 var(--lime);}
+  /* כתבות */
+  .clip-link{background:var(--orange);color:var(--ink);}
+  .clip-card:hover .clip-link{background:var(--ink);color:var(--orange);}
+  .clip-stamp{background:var(--orange);color:var(--ink);}
+  .clip-card:hover .clip-headline{box-shadow:inset 0 -.14em 0 var(--orange);}
+  /* מדיה */
+  .media-card:hover h4{text-decoration:none;box-shadow:inset 0 -.18em 0 var(--purple);}
+  .media-card .yr{color:var(--ink);}
+  #s7 .work-cat{background:var(--purple);color:var(--ink);}
+  /* יצירת קשר */
+  .contact-main-cta:hover{background:var(--purple);color:var(--ink);}
 </style>
 </head>
 <body>
@@ -275,8 +345,8 @@
       <img src="assets/hero-new.jpeg" alt="אופיר חובב">
     </div>
     <div class="hero-text">
-      <div class="hero-kicker hero-seq" data-seq="2" data-en="Journalist, Fashion &amp; Visual Culture Researcher"><span class="num">1.1</span>עיתונאית, חוקרת אופנה ותרבות חזותית</div>
-      <h1 class="hero-name hero-seq" data-seq="3" data-en="Ofir &lt;span class=&#39;mark&#39;&gt;Hovav&lt;/span&gt;"><span class="num" style="top:-10px;">1.2</span>אופיר <span class="mark">חובב</span></h1>
+      <h1 class="hero-name hero-seq" data-seq="2" data-en="Ofir &lt;span class=&#39;mark&#39;&gt;Hovav&lt;/span&gt;"><span class="num" style="top:-10px;">1.2</span>אופיר <span class="mark">חובב</span></h1>
+      <div class="hero-kicker hero-seq" data-seq="3" data-en="Journalist, Fashion &amp; Visual Culture Researcher"><span class="num">1.1</span>עיתונאית, חוקרת אופנה ותרבות חזותית</div>
       <div class="hero-links hero-seq" data-seq="5">
         <a href="#s4" class="hero-link-btn" data-en="Lectures"><span class="num">0.2</span>הרצאות</a>
         <a href="#s5" class="hero-link-btn" data-en="Articles"><span class="num">0.3</span>כתבות</a>
@@ -287,13 +357,10 @@
 </section>
 
 <!-- ===================== סטריפ קטגוריות כתום, לכל רוחב המסך ===================== -->
-<div class="cat-strip">
-  <div class="wrap">
-    <span data-en="Lectures">הרצאות</span>
-    <span data-en="Articles">כתבות</span>
-    <span data-en="Media">מדיה</span>
-    <span data-en="Fashion">אופנה</span>
-    <span data-en="Culture">תרבות</span>
+<div class="cat-strip" aria-label="כתבות">
+  <div class="strip-track">
+    <div class="strip-group"><span data-en="The Aesthetics of Surveillance Are Invading Our Lives">אסתטיקת מעקב פולשת לחיינו</span><i aria-hidden="true">✦</i><span data-en="From Celebrities to Politicians, Everyone Suddenly Needs You to Believe They Read Books">מסלבס ועד פוליטיקאים, לכולם פתאום נורא חשוב שתאמינו שהם קוראים ספרים</span><i aria-hidden="true">✦</i><span data-en="Broken Bones, Surgeries and Injections: &#39;Looksmaxxing&#39; Men Want to Look Like a Master Race">ריסוק עצמות, ניתוחים והזרקות: גברי ה"לוקסמקסינג" רוצים להיראות כמו הגזע העליון</span><i aria-hidden="true">✦</i><span data-en="The John Galliano x Zara Collab Is Another Chapter in the Decline of the Star Designer">שיתוף הפעולה של ג'ון גליאנו וזארה הוא עוד פרק בסיפור על שחיקת מעמד מעצב העל</span><i aria-hidden="true">✦</i><span data-en="From &#39;Big Brother&#39; to the Red Carpet: Why Does Everyone Look the Same?">מ"האח הגדול" לשטיח האדום: למה כולם נראים אותו דבר?</span><i aria-hidden="true">✦</i><span data-en="From Ben Gvir to Achim LaNeshek: Why Israel Can&#39;t Stop Wearing Uniforms">מבין גביר ועד אחים לנשק: כולם בישראל רוצים ללבוש מדים</span><i aria-hidden="true">✦</i></div>
+    <div class="strip-group" aria-hidden="true"><span data-en="The Aesthetics of Surveillance Are Invading Our Lives">אסתטיקת מעקב פולשת לחיינו</span><i aria-hidden="true">✦</i><span data-en="From Celebrities to Politicians, Everyone Suddenly Needs You to Believe They Read Books">מסלבס ועד פוליטיקאים, לכולם פתאום נורא חשוב שתאמינו שהם קוראים ספרים</span><i aria-hidden="true">✦</i><span data-en="Broken Bones, Surgeries and Injections: &#39;Looksmaxxing&#39; Men Want to Look Like a Master Race">ריסוק עצמות, ניתוחים והזרקות: גברי ה"לוקסמקסינג" רוצים להיראות כמו הגזע העליון</span><i aria-hidden="true">✦</i><span data-en="The John Galliano x Zara Collab Is Another Chapter in the Decline of the Star Designer">שיתוף הפעולה של ג'ון גליאנו וזארה הוא עוד פרק בסיפור על שחיקת מעמד מעצב העל</span><i aria-hidden="true">✦</i><span data-en="From &#39;Big Brother&#39; to the Red Carpet: Why Does Everyone Look the Same?">מ"האח הגדול" לשטיח האדום: למה כולם נראים אותו דבר?</span><i aria-hidden="true">✦</i><span data-en="From Ben Gvir to Achim LaNeshek: Why Israel Can&#39;t Stop Wearing Uniforms">מבין גביר ועד אחים לנשק: כולם בישראל רוצים ללבוש מדים</span><i aria-hidden="true">✦</i></div>
   </div>
 </div>
 
@@ -312,47 +379,44 @@
     <h2 class="pillar-title" data-en="Lectures"><span class="num">3.2</span>הרצאות</h2>
     <div class="lecture-grid">
       <a class="work-card tall" href="#s7">
-        <div class="work-media" style="aspect-ratio:4/9;">
+        <div class="work-media">
           <span class="img-tag num on-dark" style="position:absolute;top:12px;left:12px;z-index:2;">3.3</span>
           <img src="assets/lecture-devil-wears-prada.png" alt="השטן חוזרת לפראדה" loading="lazy">
-          <span class="work-cat" data-en="Lecture">הרצאה</span><div class="work-scrim"></div>
-          <h4 class="work-caption" data-en="The Devil Returns to Prada"><span class="num on-dark" style="background:rgba(255,255,255,.2);color:var(--beige);">3.4</span>השטן חוזרת לפראדה</h4>
         </div>
+        <h4 class="work-caption" data-en="The Devil Returns to Prada"><span class="num">3.4</span>השטן חוזרת לפראדה</h4>
       </a>
       <a class="work-card" href="#s7">
-        <div class="work-media" style="aspect-ratio:1/1;">
+        <div class="work-media">
           <span class="img-tag num on-dark" style="position:absolute;top:12px;left:12px;z-index:2;">3.5</span>
           <img src="assets/lecture-america-trump-flavored.png" alt="אמריקה בטעם טראמפ" loading="lazy">
-          <span class="work-cat" data-en="Lecture">הרצאה</span><div class="work-scrim"></div>
-          <h4 class="work-caption" data-en="America, Trump-Flavored"><span class="num on-dark" style="background:rgba(255,255,255,.2);color:var(--beige);">3.6</span>אמריקה בטעם טראמפ</h4>
         </div>
+        <h4 class="work-caption" data-en="America, Trump-Flavored"><span class="num">3.6</span>אמריקה בטעם טראמפ</h4>
       </a>
       <a class="work-card tall" href="#s7">
-        <div class="work-media" style="aspect-ratio:4/9;">
+        <div class="work-media">
           <span class="img-tag num on-dark" style="position:absolute;top:12px;left:12px;z-index:2;">3.7</span>
           <img src="assets/lecture-anonymous-was-a-woman.jpg" alt="אנונימי היה אישה" loading="lazy">
-          <span class="work-cat" data-en="Lecture">הרצאה</span><div class="work-scrim"></div>
-          <h4 class="work-caption" data-en="Anonymous Was a Woman"><span class="num on-dark" style="background:rgba(255,255,255,.2);color:var(--beige);">3.8</span>אנונימי היה אישה</h4>
         </div>
+        <h4 class="work-caption" data-en="Anonymous Was a Woman"><span class="num">3.8</span>אנונימי היה אישה</h4>
       </a>
       <a class="work-card" href="#s7">
-        <div class="work-media" style="aspect-ratio:1/1;">
+        <div class="work-media">
           <span class="img-tag num on-dark" style="position:absolute;top:12px;left:12px;z-index:2;">3.9</span>
           <img src="assets/lecture-bot-wears-prada.png" alt="הבוט לובש פראדה" loading="lazy">
-          <span class="work-cat" data-en="Lecture">הרצאה</span><div class="work-scrim"></div>
-          <h4 class="work-caption" data-en="The Bot Wears Prada"><span class="num on-dark" style="background:rgba(255,255,255,.2);color:var(--beige);">3.10</span>הבוט לובש פראדה</h4>
         </div>
+        <h4 class="work-caption" data-en="The Bot Wears Prada"><span class="num">3.10</span>הבוט לובש פראדה</h4>
       </a>
-      <div class="accent-card" data-en="Need a lecture for your event? Let&#39;s talk.">
-        <span class="num">3.13</span>יש לכם כנס?<br>יש לי הרצאה.
-      </div>
       <a class="work-card" href="#s7">
-        <div class="work-media" style="aspect-ratio:1/1;">
+        <div class="work-media">
           <span class="img-tag num on-dark" style="position:absolute;top:12px;left:12px;z-index:2;">3.11</span>
           <img src="assets/lecture-fashion-in-italy.jpg" alt="אופנה באיטליה" loading="lazy">
-          <span class="work-cat" data-en="Lecture">הרצאה</span><div class="work-scrim"></div>
-          <h4 class="work-caption" data-en="Fashion in Italy"><span class="num on-dark" style="background:rgba(255,255,255,.2);color:var(--beige);">3.12</span>אופנה באיטליה</h4>
         </div>
+        <h4 class="work-caption" data-en="Fashion in Italy"><span class="num">3.12</span>אופנה באיטליה</h4>
+      </a>
+      <a class="accent-card" href="#s11">
+        <span class="num">3.13</span>
+        <span class="accent-title" data-en="Got a conference?&lt;br&gt;I&#39;ve got a lecture.">יש לכם כנס?<br>יש לי הרצאה.</span>
+        <span class="accent-cta" data-en="Let&#39;s talk ←">בואו נדבר ←</span>
       </a>
     </div>
   </div>
