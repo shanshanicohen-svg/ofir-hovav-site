@@ -15,9 +15,6 @@
 <meta name="twitter:title" content="אופיר חובב | חוקרת אופנה ותרבות">
 <meta name="twitter:description" content="אופיר חובב — חוקרת אופנה ותרבות, מרצה וכותבת.">
 <meta name="twitter:image" content="https://ofirhovav.netlify.app/assets/og-image.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     /* פלטה מדויקת לפי מפרט: קרם+שחור כבסיס, אקסנט אחד דומיננטי (ליים) + שניים משניים */
@@ -35,9 +32,9 @@
     --maxw: 1320px;
     --gutter: 64px;
     --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    --f-head:'Rubik', sans-serif;
-    --f-latin:'Karantina', 'Rubik', sans-serif;
-    --f-body:'Assistant', sans-serif;
+    --f-head:'Karantina', sans-serif;
+    --f-latin:'Karantina', sans-serif;
+    --f-body:'Karantina', sans-serif;
     --ease-out: cubic-bezier(.16,.8,.24,1);
   }
   @font-face{font-family:'Karantina';src:url('assets/fonts/Karantina-Regular.ttf') format('truetype');font-weight:400;font-display:swap;}
@@ -152,8 +149,8 @@
   @media(max-width:860px){.hero-photo-bg{max-width:260px;margin:0 auto;order:1;} .hero-text{order:2;}}
   .hero-photo-bg img{width:100%;height:100%;object-fit:cover;}
   .hero-scrim{display:none;}
-  .hero-kicker{font-family:var(--f-head);font-size:clamp(15px,1.6vw,20px);letter-spacing:.1em;text-transform:none;color:var(--ink);font-weight:700;margin-bottom:10px;}
-  .hero-name{font-family:var(--f-latin);font-size:clamp(60px,9vw,128px);line-height:.94;font-weight:700;letter-spacing:.01em;color:var(--ink);white-space:normal;}
+  .hero-kicker{font-family:var(--f-head);font-size:clamp(22px,2.4vw,32px);letter-spacing:.04em;text-transform:none;color:var(--ink);font-weight:400;margin-bottom:10px;}
+  .hero-name{font-family:var(--f-latin);font-size:clamp(96px,14vw,210px);line-height:.88;font-weight:700;letter-spacing:.01em;color:var(--ink);white-space:normal;}
   html[lang="en"] .hero-name{text-transform:uppercase;}
   .hero-name .mark{color:var(--ink);}
   .hero-bottom{margin-top:40px;}
@@ -244,6 +241,13 @@
   .foot-copy{font-size:13px;color:var(--ink-soft);}
 
   .placeholder-badge{display:inline-block;background:#FFF3D6;color:#7A5B00;font-size:11px;padding:3px 10px;border-radius:3px;font-weight:700;margin-bottom:10px;}
+  /* Karantina צר — הגדלת טקסטים קטנים כדי לשמור על קריאות */
+  body{font-size:19px;}
+  .eyebrow,.cat-strip span,.nav-cta,.lang-toggle,.clip-link{font-size:17px;}
+  .work-cat{font-size:15px;}
+  .media-card h4{font-size:24px;}
+  .media-card .yr{font-size:16px;}
+  .media-card .yr.yr-sentence{font-size:19px;}
 </style>
 </head>
 <body>
